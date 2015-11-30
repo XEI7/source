@@ -1,6 +1,6 @@
 title: Elf学习
 categories: [逆向]
-date: 1912-12
+date: 2022-12
 tags: [elf,笔记]
 ---
 文章摘要
