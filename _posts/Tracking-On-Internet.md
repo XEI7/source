@@ -5,7 +5,7 @@ tags: [cookie]
 photos:
 ---
 文章摘要
-collous?
+Collusion <https://www.mozilla.org/en-US/lightbeam>
 <!--more-->
 ### For Waht?
 Show ads!
