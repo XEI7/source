@@ -10,8 +10,11 @@ gdb fig8.3 -x fig8.3.bp
 
 
 在系统范围禁用ASLR
-   # echo "0" > /proc/sys/kernel/randomize_va_space
-gcc test.c -o test -zexecstack -fno-stack-protector -g
+echo "0" > /proc/sys/kernel/randomize_va_space
+gcc test.c -o test -z execstack -f no-stack-protector -g
+-fno-stack-protector和-z execstack这两个参数会分别关掉DEP和Stack Protector。
+
+这几个指令。执行完后我们就关掉整个linux系统的ASLR保护。
 
 如果你想跟踪子进程进行调试，可以使用set follow-fork-mode mode来设置fork跟随模式。参数可以是以下的一种：
     parent

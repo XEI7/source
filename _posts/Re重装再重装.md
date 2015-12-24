@@ -3,6 +3,10 @@ date: 2015-11-30 17:59:04
 categories: [kali]
 tags: [kali,重装]
 ---
+deb http://http.kali.org/kali sana main non-free contrib
+deb-src http://http.kali.org/kali sana main non-free contrib
+deb http://security.kali.org/kali-security/ sana/updates main contrib non-free
+deb-src http://security.kali.org/kali-security/ sana/updates main contrib non-free
 #中科大kali源
 deb http://mirrors.ustc.edu.cn/kali sana main non-free contrib
 deb-src http://mirrors.ustc.edu.cn/kali sana main non-free contrib
@@ -20,7 +24,7 @@ fstab
     UUID=e4419164  /code	ntfs	rw,user,noauto,exec,utf8	0	0
 
 bash_it  candy    
-    PS1="${bold_yellow}|${reset_color}${bold_yellow}\w${reset_color}$(scm_prompt_info)${blue} →${bold_blue} ${reset_color} ";
+    PS1="${bold_yellow}|${reset_color}${yellow}\w${reset_color}$(scm_prompt_info)${blue} →${blue} ${reset_color} ";
 
     仿宋ttf solarized
 
@@ -49,8 +53,8 @@ cat oui.txt |grep "hex"|awk '{print $1 " : " $3}' >oui-md
 
     ps -e -o ppid,stat | grep Z | cut -d” ” -f2 | xargs kill -9
     ps -A -ostat,ppid,pid,cmd | grep -e '^[Zz]'
-
-    sudo apt-get install iftop pngcheck fcitx audacity
+    sudo apt-get install fcitx fcitx-googlepinyin
+    sudo apt-get install iftop pngcheck  audacity
     sudo apt-get install linux-headers-`uname -r`
     sh VMware-Workstation-Full x86.bundle
 

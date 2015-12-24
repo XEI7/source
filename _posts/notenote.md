@@ -6,6 +6,12 @@ photos:
 ---
 文章摘要
 <!--more-->
+classifier  Organize files in your current directory, by classifying them into folders of music, pdfs, images, etc
+xssscrapy   提示is deprecated
+如
+from scrapy.contrib.spiders import CrawlSpider
+换成
+from scrapy.spiders import CrawlSpider
 
 干扰分为两种。一种是噪音，主要发生在频率冲突时；另一种是大信号阻塞，和频率是否冲突没有关系，和具体射频设计及天线间隔离有关系。
  1730  userdel lp
