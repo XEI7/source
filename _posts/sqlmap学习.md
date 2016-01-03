@@ -4,6 +4,62 @@ date: 1912-12
 tags: [sqlmap]
 ---
 
+一般的操作是：先把proxy的requests请求保存成一个log文件，然后执行命令：
+python sqlmap.py -l requests.log --smart --batch
+一般有SQL注入漏洞的都啪啪啪的挖出来的，但是这里有个问题，因为 log是 requests的请求log所以就包含了所有的 requests请求。像静态资源文件啊（js.html.css）什么的都包含在里面，这就会导致整个检测周期会变得比较长。
+    本着提高检测效率的精神，咱对sqlmap做一下简单的更改，这也完全得意于sqlmap作者对其开源。
+修改比较简单，对请求的url进行判断，使用正则表达式对url内容进行判断，如果匹配的话就不往下执行。
+
+-l 参数修改：
+在\sqlmap\lib\controller\controller.py文件找到 def start()，在conf.cookie = targetCookie加入以下代码
+```
+    for targetUrl, targetMethod, targetData, targetCookie, targetHeaders in kb.targets:
+        try:
+            conf.url = targetUrl
+            conf.method = targetMethod.upper() if targetMethod else targetMethod
+            conf.data = targetData
+            conf.cookie = targetCookie
+
+            #''' Static resource not injection '''
+            Static = re.findall(r"\w+\.(?:js|html|css|jpg|png)\?\w+",conf.url)
+            if Static:
+                infoMsg = "Static resource: %s not injection" % Static
+                logger.info(infoMsg)
+                break
+            #''' Static resource not injection '''
+
+            conf.httpHeaders = list(initialHeaders)
+            conf.httpHeaders.extend(targetHeaders or [])
+
+            initTargetEnv()
+```
+
+-u参数修改：
+在\sqlmap\lib\controller\checks.py 文件找到 def checkConnection(suppressOutput=False) ，在if not suppressOutput and not conf.dummy加入以下代码
+
+```
+    if not suppressOutput and not conf.dummy and not conf.offline:
+        infoMsg = "testing connection to the target URL"
+        logger.info(infoMsg)
+
+    #''' Static resource not injection '''
+    Static = re.findall(r"\w+\.(?:js$|html|css|jpg|png)",conf.url)
+    if Static:
+        infoMsg = "Static resource: %s not injection" % Static
+        logger.info(infoMsg)
+        return False
+    #''' Static resource not injection '''
+    
+    try:
+        kb.originalPageTime = time.time()
+```
+ 
+修改完后，运行如下：
+ 
+python sqlmap.py -l 1.log -v 3
+
+
+
 ## 首先详细看一下payload中字段：
 <!--more-->
 #### title字段：
