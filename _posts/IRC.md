@@ -7,4 +7,5 @@ tags:
 #gentoo
 #fedora-zh  Friday
 #linuxba
+#beefproject
 <!--more-->
