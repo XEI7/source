@@ -10,7 +10,7 @@ SQL扫描规则
 那么就必须了解两个格式，一是boundary文件，一是payloads。
 
 例子：
-
+```
 <boundary>    
 <level>1</level>    
 <clause>1</clause>    
@@ -19,6 +19,7 @@ SQL扫描规则
 <prefix>'</prefix>    
 <suffix> AND '[RANDSTR]'='[RANDSTR]</suffix>
 </boundary>
+```
 1. clause与where属性
 
 这两个元素的作用是限制boundary所使用的范围，可以理解成当且仅当某个boundary元素的where节点的值包含test元素的子节点，clause节点的值包含test元素的子节点的时候，该boundary才能和当前的test匹配，从而进一步生成payload。
@@ -36,7 +37,7 @@ function getattachtablebypid($pid) {
 SELECT tableid FROM ".DB::table('forum_attachment')." WHERE pid='' AND 'test' = 'test' LIMIT 1
 所以如果我们输入的是' AND 'test' = 'test，那麽最终拼接起来的SQL语句同样是合法的。那麽我们就可以把所测试的Payload放到prefix与suffix中间，使之最终的SQL合法，从而进行注入测试，所以通过了解，prefix与suffix的作用就是为了截断SQL的语句，从而让最终的Payload合法。
 至此boundary文件的作用已经讲解完了，接下来就是payload的讲解了。
-
+```
 <test>    
 <title>MySQL &gt;= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause</title>    
 <stype>2</stype>    
@@ -56,6 +57,7 @@ SELECT tableid FROM ".DB::table('forum_attachment')." WHERE pid='' AND 'test' = 
 <dbms_version>&gt;= 5.0</dbms_version>    
 </details>
 </test>
+```
 1. title属性
 
 title属性为当前测试Payload的标题，通过标题就可以了解当前的注入手法与测试的数据库类型。

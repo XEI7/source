@@ -59,7 +59,7 @@ cat oui.txt |grep "hex"|awk '{print $1 " : " $3}' >oui-md
     sh VMware-Workstation-Full x86.bundle
 
 
-chrome
+chrome /usr/bin/google-chrome %U --user-data-dir $HOME,close
 fcitx-configtool
 sogou 停用 Fcitx Kimpanel组件  会使得候选字变乱码
 ~/.config/sublime [TAB] /Packages git clone https://github.com/xgenvn/InputHelper.git
@@ -69,6 +69,10 @@ sogou 停用 Fcitx Kimpanel组件  会使得候选字变乱码
     VIM :1,$ s/^M/\r/g
     cat filename |tr -d '\r' > newfilename
 ```
+
+smbclient -L //10.10.11.75
+sudo mount -t cifs -o username=administrator //10.10.11.75/123 /tmp/123/ 
+
 #!/bin/sh
 #/opt/node/bin/npm.ln
 cd /opt/node/bin && ./npm "$@"

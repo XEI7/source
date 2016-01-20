@@ -124,7 +124,7 @@ def parseFilePaths(page):
                 if absFilePath not in kb.absFilePaths:
                     kb.absFilePaths.add(absFilePath)
 而XSS的检测代码位于889行中:
-
+```
 # String used for dummy XSS check of a tested parameter value
 DUMMY_XSS_CHECK_APPENDIX = "<'\">"
     ...
@@ -138,6 +138,7 @@ DUMMY_XSS_CHECK_APPENDIX = "<'\">"
         infoMsg += "'%s' might be vulnerable to XSS attacks" % parameter
         logger.info(infoMsg)
     ...
+```
 最后根据输入的字符是否留着页面上，如果存在就提示有可能拥有XSS漏洞。
 
 #### 总结
